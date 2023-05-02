@@ -1,6 +1,6 @@
 - Make UUID
 - Test using JSON
-- like DB with MiddleWare
+- link DB with MiddleWare
 - Make Routing
 - Rate Limiting
 - Name, logo, domain, landing page
