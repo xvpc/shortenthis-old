@@ -24,6 +24,7 @@
     "react-ripples": "^2.2.1",
     "react-tilt": "^1.0.2",
     "react-toastify": "^9.1.2",
-    "sass": "^1.62.1"
+    "sass": "^1.62.1",
+    "valid-url": "^1.0.9"
   }
 }

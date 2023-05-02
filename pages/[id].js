@@ -12,18 +12,18 @@ import Layout from "@/Components/Layout";
 // Others
 // import links from '@/data/links.json'
 
-export default function Testing({ link }) {
+export default function Testing({ data }) {
     const router = useRouter()
     // useEffect(() => {
-    //     // router.replace(link.originalLink)
-    //     console.log(link)
+    //     // router.replace('/')
+    //     console.log(data)
     // }, [])
 
     return(
         <Layout>
             <div>
                 <h1>Testing page!</h1>
-                <div>Like is: {link.originalLink || 'none giving'}</div>
+                <div>Like is: {data?.originalLink || 'none giving'}</div>
             </div>
         </Layout>
     )
@@ -36,10 +36,10 @@ export async function getServerSideProps(context){
         try{
             const req = await axios.get(process.env.API_URL + '/' + queryId)
             console.log('req from getServerSideProps =>', req.data)
-            if(req?.data && req.data.length){
+            if(req?.data){
                 return{
                     props: {
-                        link,
+                        data: req.data,
                     }
                 }
             }

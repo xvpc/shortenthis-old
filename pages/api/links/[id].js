@@ -13,13 +13,13 @@ export default async function handler(req, res){
         if(!checkLinks.length){
             res.status(404).json({error: 'Id Not Found'})
         }else{
-            res.status(200).json(checkLinks)
+            res.status(200).json(...checkLinks)
         }
     }else if(req.method === 'DELETE'){
         await db.connect()
         const checkLinks = await Links.deleteOne({id: id})
         await db.disconnect()
 
-        res.status(200).json(checkLinks)
+        res.status(200).json(...checkLinks)
     }
 }

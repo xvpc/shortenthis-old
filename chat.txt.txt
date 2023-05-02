@@ -1,3 +1,4 @@
+- Make UUID
 - Test using JSON
 - like DB with MiddleWare
 - Make Routing
@@ -5,14 +6,14 @@
 - Name, logo, domain, landing page
 - 404 page
 - Make API subdomain 
-- Make UUID
+- Secure API
+- Block All other Actios to the API
 
 ------------------
 Links Schema
 {
         "id": "6dfFCJC",
         "originalLink": "http://xvpc.dev",
-        "shortLike": "http://localhost:3000/ajkghahg32of2r",
         "createdAt": "2015-04-25T13:25:30/245Z"
 }
 ------------------

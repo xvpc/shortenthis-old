@@ -20,19 +20,21 @@ export default function Layout({ children}) {
                 <link rel="icon" type="image/png" sizes="16x16" href='./favicon/favicon-16x16.png'/> */}
             </Head>
 
-            <div>
-                <header>
-                    <nav className=''>
+            <div className='d-flex flex-column justify-content-between align-items-center min-vh-100'>
+                <header className='bg-info container-fluid d-flex justify-content-center align-items-center text-center'>
+                    <nav className='container  '>
                         Navbar
                     </nav>
                 </header>
 
-                <main>
+                <main className='my-4'>
                     {children}
                 </main>
 
-                <footer className=''>
-                    © {new Date().getFullYear()}, Footer
+                <footer className='bg-warning container-fluid d-flex justify-content-center align-items-center text-center'>
+                    <div className='container '>
+                        © {new Date().getFullYear()}, Footer
+                    </div>
                 </footer>
             </div>
         </>
