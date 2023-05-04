@@ -5,9 +5,9 @@ import Links from "@/database/modals/linksModal"
 import UUID from "@/lib/UUID"
 
 // 
-export const config = {
-  runtime: 'edge',
-}
+// export const config = {
+//   runtime: 'edge',
+// }
 
 // Rate limit
 import { Ratelimit } from "@upstash/ratelimit";
