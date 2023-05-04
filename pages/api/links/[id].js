@@ -1,9 +1,9 @@
 import db from '@/database/connect'
 import Links from "@/database/modals/linksModal"
 
-export const config = {
-    runtime: 'edge',
-}
+// export const config = {
+//     runtime: 'edge',
+// }
 
 export default async function handler(req, res){
     const { API_SECRET, id } = req.query
