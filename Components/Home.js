@@ -121,7 +121,7 @@ export default function Home({ DA_SECRET }) {
                             <h3 className='text-secondary fw-bold'>QRCode</h3>
                             {qrCode && !qrCodeError ? 
                             <div className='d-flex flex-column align-items-center justify-content-between gap-2'>
-                                <Image style={{maxWidth: '280px', maxHeight: '280px'}} src={qrCode} width='1080' height='720' alt='QRCode Placeholder' /> 
+                                <img style={{maxWidth: '280px', maxHeight: '280px'}} src={qrCode} width='1080' height='720' alt='QRCode Placeholder' /> 
                                 <a className='btn btn-danger' href={qrCode} download='qrcode.png'>Download</a>
                             </div>
                             : <h3 className='text-danger'>Something Went Wrong!</h3>
