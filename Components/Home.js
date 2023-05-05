@@ -61,7 +61,7 @@ export default function Home({ DA_SECRET }) {
                     setPostLoading(false)
                     console.log(err.message)
                     if(err.response.status === 429){
-                        setError('Too Many Requests')
+                        setError('Too Many Requests, Try again later.')
                     }else{
                         setError(err.message)
                     }
