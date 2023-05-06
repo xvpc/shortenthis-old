@@ -56,7 +56,7 @@ export default function Layout({ children}) {
                         
                         <p className='p-0 m-0'>
                             {/* TODO: Change */}
-                            <Link style={{textDecoration: 'none'}} className='link-info' href={'http://localhost:3000/'}>ShortenThis</Link> © {new Date().getFullYear()}
+                            <Link style={{textDecoration: 'none'}} className='link-info' href={'http://stul.site/'}>ShortenThis</Link> © {new Date().getFullYear()}
                         </p>
                         
                         <div className='footer-credit mw-25 d-flex flex-row justify-content-center align-items-center gap-2'>
