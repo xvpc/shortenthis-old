@@ -23,7 +23,7 @@ import FormatDate from '@/lib/FormatDate';
 import { FcApproval, FcElectronics, FcFlashOn, FcLink, FcMultipleDevices } from "react-icons/fc";
 
 export default function Home({ DA_SECRET }) {
-    const url = typeof window !== 'undefined' && window.location.origin + '/';
+    const url = typeof window !== 'undefined' && window.location.host + '/';
     const [value, setValue] = useState('')
     const [error, setError] = useState('')
     const [postLoading, setPostLoading] = useState('')

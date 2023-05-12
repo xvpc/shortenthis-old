@@ -15,7 +15,7 @@ import FormatDate from '@/lib/FormatDate';
 
 export default function LinkDashboard({ data }) {
     // console.log('From UserDashboard => ', data)
-    const url = typeof window !== 'undefined' && window.location.origin + '/';
+    const url = typeof window !== 'undefined' && window.location.host + '/';
     const [loading, setLoading] = useState(false)
     const [qrCode, setQrCode] = useState('')
     const [qrCodeError, setQrCodeError] = useState('')
@@ -58,7 +58,7 @@ export default function LinkDashboard({ data }) {
                                     const copyButton = document.querySelector('.copy-button')
                                     navigator.clipboard.writeText(document.querySelector('.url-text').value)
                                     copyButton.classList.add('btn-success')
-                                    copyButton.textContent = 'Copied'
+                                    copyButton.textContent = 'Copied ✅'
                                 }} type="button" className="copy-button btn btn-primary rounded-1">Copy</button>
                             </div>
                             <div className='align-self-start text-secondary fw-light'>

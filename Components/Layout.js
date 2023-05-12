@@ -6,8 +6,17 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 export default function Layout({ children}) {
-    const [darkTheme, setDarkTheme] = useState()
+    const [darkTheme, setDarkTheme] = useState(false)
     useEffect(() => {
+        if(typeof window !== 'undefined'){
+            if(localStorage.getItem('darkTheme')) {
+                console.log('Setting dark theme')
+                setDarkTheme(true)
+            }else{
+                setDarkTheme(false)
+            }
+        }
+        
         const mainSection = document.querySelector('.main-section')
         const handleChangeTheme = () => {
             if(typeof window !== 'undefined'){
