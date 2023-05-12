@@ -42,8 +42,8 @@ export default async function handler(req, res){
   if(req.method === 'GET'){
     await db.connect()
     const checkLinks = await Links.find()
-    await db.disconnect()
     res.status(200).json(checkLinks)
+    await db.disconnect()
   }
   else if(req.method === 'POST'){
     const { originalLink } = req.body
@@ -52,7 +52,6 @@ export default async function handler(req, res){
 
     await db.connect()
     const checkLinks = await Links.find({ id: generateId })
-    await db.disconnect()
 
     if(!checkLinks.length){
       const newLink = {
@@ -60,9 +59,7 @@ export default async function handler(req, res){
         originalLink: originalLink ? originalLink : '/',
         clicked: 0
       }
-      await db.connect()
       const postLink = await Links.create(newLink)
-      await db.disconnect()
       res.status(201).json(postLink)
     }else{
       generateId = UUID()
@@ -71,11 +68,10 @@ export default async function handler(req, res){
         originalLink: originalLink ? originalLink : '/',
         clicked: 0
       }
-      await db.connect()
       const postLink = await Links.create(newLink)
-      await db.disconnect()
       res.status(201).json(postLink)
     }
+    await db.disconnect()
   }
   else{
     res.status(500).json({error: "This Request Isn't Allowed!"})
