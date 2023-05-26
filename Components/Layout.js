@@ -5,7 +5,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import Image from 'next/image'
 
-export default function Layout({ children}) {
+export default function Layout({ children, noCards }) {
     const [darkTheme, setDarkTheme] = useState(false)
     useEffect(() => {
         if(typeof window !== 'undefined'){
@@ -42,16 +42,19 @@ export default function Layout({ children}) {
         <>
             <Head>
                     <title>ShortenThis</title>
-                <meta name="title" content='ShortenThis' />
-                <meta name="description" content='ShortenThis is a simple and easy Shorten URL Website, It allows you to shorten your long Link And gives you a QRCode for it And A Dashboard to track how many people Clicked your Link.' />
-                <meta name="keywords" content='link, links, short, short link, short links, website, link website, shorten link, shorten link website, shorten website, url, short url, shorten url, website shorten url, shorten links, add, delete, api, make, dashboard, count, click, cliked, safe, direct, direct link, ad, ads, free, free shorten url website, fast, east, secure, facebook, tiktok, instagram, twitter, youtube, qrcode, create link, create qrcode, qr code, code, codeing, copy, paste, pay, github, viper, new, cool, scan, scan qrcode, size, big size, big url, long url, long link, short link' />
-                <meta name="viewport" content="width=device-width, initial-scale=1" />
+                {!noCards &&
+                <>
+                    <meta name="title" content='ShortenThis' />
+                    <meta name="description" content='ShortenThis is a simple and easy Shorten URL Website, It allows you to shorten your long Link And gives you a QRCode for it And A Dashboard to track how many people Clicked your Link.' />
+                    <meta name="keywords" content='link, links, short, short link, short links, website, link website, shorten link, shorten link website, shorten website, url, short url, shorten url, website shorten url, shorten links, add, delete, api, make, dashboard, count, click, cliked, safe, direct, direct link, ad, ads, free, free shorten url website, fast, east, secure, facebook, tiktok, instagram, twitter, youtube, qrcode, create link, create qrcode, qr code, code, codeing, copy, paste, pay, github, viper, new, cool, scan, scan qrcode, size, big size, big url, long url, long link, short link' />
+                    <meta name="viewport" content="width=device-width, initial-scale=1" />
     
-                {/* ICONS */}
-                <link rel="shortcut icon" type="image/x-icon" href='./favicon/favicon.ico' />
-                <link rel="apple-touch-icon" sizes="180x180" href='./favicon/apple-touch-icon.png' />
-                <link rel="icon" type="image/png" sizes="32x32" href='./favicon/favicon-32x32.png'/>
-                <link rel="icon" type="image/png" sizes="16x16" href='./favicon/favicon-16x16.png'/>
+                    <link rel="shortcut icon" type="image/x-icon" href='./favicon/favicon.ico' />
+                    <link rel="apple-touch-icon" sizes="180x180" href='./favicon/apple-touch-icon.png' />
+                    <link rel="icon" type="image/png" sizes="32x32" href='./favicon/favicon-32x32.png'/>
+                    <link rel="icon" type="image/png" sizes="16x16" href='./favicon/favicon-16x16.png'/>
+                </>
+                }
             </Head>
 
             <div className={`${darkTheme ? 'bg-dark text-white' : 'bg-white text-black'} d-flex flex-column justify-content-between align-items-center min-vh-100`}>

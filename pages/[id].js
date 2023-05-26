@@ -33,7 +33,7 @@ export default function RedirectingPage({ data }) {
 
 
     return(
-        <Layout>
+        <Layout noCards>
             <div className="d-flex flex-column justify-content-center align-items-center gap-2">
                 {!error ? 
                 <>
