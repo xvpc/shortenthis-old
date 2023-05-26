@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 
-// 
+// Nextjs
 import { useRouter } from "next/router";
 
-// 
+// Fetch
 import axios from "axios";
 
 // Components
@@ -50,14 +50,14 @@ export default function RedirectingPage({ data }) {
 export async function getServerSideProps(context){
     const { id } = context.query
     const queryId = String(id)
+    const url = process.env.API_URL + '/' + queryId
     
-    if(queryId && typeof queryId === 'string'){
-        const url = process.env.API_URL + '/' + queryId
+    if(queryId){
         try{
-            const req = await axios(url, {
-                params: {
-                    API_SECRET: process.env.API_SECRET
-                },
+            const req = await axios.get(url, {
+                headers: {
+                    authorization: process.env.API_SECRET
+                }
             })
             console.log('req from getServerSideProps =>', req.data)
             if(req?.data){

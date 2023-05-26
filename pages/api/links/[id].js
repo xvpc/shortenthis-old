@@ -1,16 +1,17 @@
 import db from '@/database/connect'
 import Links from "@/database/modals/linksModal"
 
+// Liab
+import AuthKey from '@/lib/AuthKey'
+
 // 
 // export const config = {
 //     runtime: 'edge',
 // }
 
 export default async function handler(req, res){
-    const { API_SECRET, id } = req.query
-    if(API_SECRET !== process.env.API_SECRET){
-        res.status(401).json({error: 'Unauthorized User!'})
-    }
+    AuthKey(req, res)
+    const { id } = req.query
 
     if(req.method === 'GET'){
         await db.connect()

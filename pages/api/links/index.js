@@ -1,8 +1,9 @@
 import db from "@/database/connect"
 import Links from "@/database/modals/linksModal"
 
-// 
+// Liab
 import UUID from "@/lib/UUID"
+import AuthKey from "@/lib/AuthKey";
 
 // 
 // export const config = {
@@ -20,11 +21,14 @@ const redis = new Redis({
 
 const ratelimit = new Ratelimit({
   redis: redis,
-  limiter: Ratelimit.fixedWindow(5, "1000 s"),
+  limiter: Ratelimit.fixedWindow(15, "500 s"),
   analytics: true,
 })
 
 export default async function handler(req, res){
+  AuthKey(req, res)
+
+  // 
   const identifier = "api";
   const result = await ratelimit.limit(identifier);
   res.setHeader('X-RateLimit-Limit', result.limit)
@@ -34,10 +38,6 @@ export default async function handler(req, res){
     return
   }
 
-  const { API_SECRET } = req.body
-  if(API_SECRET !== process.env.API_SECRET){
-    res.status(401).json({error: 'Unauthorized User!'})
-  }
   
   if(req.method === 'GET'){
     await db.connect()

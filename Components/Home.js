@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 
-// Next
+// Nextjs
 import Image from 'next/image';
 import Link from 'next/link';
 
-// 
+// Fetch
 import axios from 'axios';
 
 // Bootstrap
@@ -16,7 +16,7 @@ import { isWebUri } from 'valid-url';
 // Qrcode
 import QRCode from 'qrcode';
 
-// 
+// Liab
 import FormatDate from '@/lib/FormatDate';
 
 // Icons
@@ -38,10 +38,16 @@ export default function Home({ DA_SECRET }) {
                 setError('')
                 try{
                     setPostLoading(true)
-                    const req = await axios.post(`/api/links`, {
-                        API_SECRET: DA_SECRET,
-                        originalLink: value
-                    })
+                    const req = await axios.post(`/api/links`, 
+                        {
+                            originalLink: value
+                        },
+                        {
+                            headers: {
+                                authorization: DA_SECRET
+                            }
+                        }
+                    )
                     setPostData(req.data)
                     // QRCode
                     QRCode.toDataURL(url + req.data.id, {
