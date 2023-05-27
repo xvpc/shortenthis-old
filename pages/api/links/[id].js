@@ -5,9 +5,9 @@ import Links from "@/database/modals/linksModal"
 import AuthKey from '@/lib/AuthKey'
 
 // 
-export const config = {
-    runtime: 'edge',
-}
+// export const config = {
+//     runtime: 'edge',
+// }
 
 export default async function handler(req, res){
     AuthKey(req, res)

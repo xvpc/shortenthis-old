@@ -6,9 +6,9 @@ import UUID from "@/lib/UUID"
 import AuthKey from "@/lib/AuthKey";
 
 // 
-export const config = {
-  runtime: 'edge',
-}
+// export const config = {
+//   runtime: 'edge',
+// }
 
 // Rate limit
 // import { Ratelimit } from "@upstash/ratelimit";

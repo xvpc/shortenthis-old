@@ -8,9 +8,9 @@ import Layout from "@/Components/Layout";
 import LinkDashboard from "@/Components/LinkDashboard";
 
 // 
-export const config = {
-    runtime: 'experimental-edge',
-}
+// export const config = {
+//     runtime: 'experimental-edge',
+// }
 
 export default function LinkBoard({ data }) {
 
