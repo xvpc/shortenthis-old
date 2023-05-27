@@ -6,37 +6,37 @@ import UUID from "@/lib/UUID"
 import AuthKey from "@/lib/AuthKey";
 
 // 
-// export const config = {
-//   runtime: 'edge',
-// }
+export const config = {
+  runtime: 'edge',
+}
 
 // Rate limit
-import { Ratelimit } from "@upstash/ratelimit";
-import { Redis } from "@upstash/redis";
+// import { Ratelimit } from "@upstash/ratelimit";
+// import { Redis } from "@upstash/redis";
 
-const redis = new Redis({
-  url: process.env.UPSTASH_REDIS_REST_URL,
-  token: process.env.UPSTASH_REDIS_REST_TOKEN,
-})
+// const redis = new Redis({
+//   url: process.env.UPSTASH_REDIS_REST_URL,
+//   token: process.env.UPSTASH_REDIS_REST_TOKEN,
+// })
 
-const ratelimit = new Ratelimit({
-  redis: redis,
-  limiter: Ratelimit.fixedWindow(15, "500 s"),
-  analytics: true,
-})
+// const ratelimit = new Ratelimit({
+//   redis: redis,
+//   limiter: Ratelimit.fixedWindow(15, "500 s"),
+//   analytics: true,
+// })
 
 export default async function handler(req, res){
   AuthKey(req, res)
 
   // 
-  const identifier = "api";
-  const result = await ratelimit.limit(identifier);
-  res.setHeader('X-RateLimit-Limit', result.limit)
-  res.setHeader('X-RateLimit-Remaining', result.remaining)
-  if (!result.success) {
-    res.status(429).json({message: 'The request has been rate limited.', rateLimitState: result})
-    return
-  }
+  // const identifier = "api";
+  // const result = await ratelimit.limit(identifier);
+  // res.setHeader('X-RateLimit-Limit', result.limit)
+  // res.setHeader('X-RateLimit-Remaining', result.remaining)
+  // if (!result.success) {
+  //   res.status(429).json({message: 'The request has been rate limited.', rateLimitState: result})
+  //   return
+  // }
 
   
   if(req.method === 'GET'){

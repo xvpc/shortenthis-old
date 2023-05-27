@@ -11,7 +11,7 @@
 
 import mongoose from 'mongoose';
 
-const linksSchema = new mongoose.Schema({
+const linksSchema = mongoose.Schema({
     id: String,
     originalLink: String,
     clicked: Number,

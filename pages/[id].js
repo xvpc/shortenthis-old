@@ -9,6 +9,11 @@ import axios from "axios";
 // Components
 import Layout from "@/Components/Layout";
 
+// 
+export const config = {
+    runtime: 'experimental-edge',
+}
+
 export default function RedirectingPage({ data }) {
     const [count, setCount] = useState(7)
     const [error, setError] = useState('')

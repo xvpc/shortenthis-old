@@ -4,6 +4,11 @@ import React from "react";
 import Layout from "@/Components/Layout";
 import Home from "@/Components/Home";
 
+// 
+export const config = {
+  runtime: 'experimental-edge',
+}
+
 export default function Main({DA_SECRET}) {
 
   return(
