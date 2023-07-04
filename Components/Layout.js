@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
 import Image from 'next/image'
+import Script from 'next/script'
 
 export default function Layout({ children, noCards }) {
     const [darkTheme, setDarkTheme] = useState(false)
@@ -57,6 +58,8 @@ export default function Layout({ children, noCards }) {
                 }
             </Head>
 
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2145985963089716"
+            crossOrigin="anonymous"></script>
             <div className={`${darkTheme ? 'bg-dark text-white' : 'bg-white text-black'} d-flex flex-column justify-content-between align-items-center min-vh-100`}>
 
                 <main className='main-section my-auto py-4 container-fluid'>
